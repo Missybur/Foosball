@@ -21,7 +21,7 @@ var PLAYERS = [
   },
   {
     name: "Lisette Ven",
-    score: 16,
+    score: 17,
     id: 5,
   },
 ];
