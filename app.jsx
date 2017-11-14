@@ -6,22 +6,22 @@ var PLAYERS = [
   },
   {
     name: "Ellie Grace",
-    score: 10,
+    score: 20,
     id: 2,
   },
   {
     name: "Ben Pine",
-    score: 17,
+    score: 18,
     id: 3,
   },
   {
     name: "Rachel Slater",
-    score: 32,
+    score: 17,
     id: 4,
   },
   {
     name: "Lisette Ven",
-    score: 16,
+    score: 10,
     id: 5,
   },
 ];
@@ -137,8 +137,10 @@ var Application = React.createClass({
   },
 
   onScoreChange: function(index, delta) {
-    this.state.players[index].score += delta;
-    this.setState(this.state);
+    let players = [...this.state.players]
+    players[index].score += delta;
+    players = players.sort((a,b) => b.score - a.score)
+    this.setState({players});
   },
 
   onPlayerAdd: function(name) {
@@ -155,6 +157,8 @@ var Application = React.createClass({
     this.state.players.splice(index, 1);
     this.setState(this.state);
   },
+
+  // reorderPlayers
 
   render: function() {
     return (
